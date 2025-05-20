@@ -1,0 +1,80 @@
+/* Reset some default margins and paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #2355a1;
+    color: #333;
+  }
+  
+  #quiz-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px 25px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #222;
+  }
+  
+  p#progress {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 25px;
+    text-align: right;
+    font-weight: 500;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 14px;
+    font-size: 1rem;
+    background: #4a90e2;
+    border: none;
+    border-radius: 6px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 7px rgba(74,144,226,0.4);
+  }
+  
+  button:hover,
+  button:focus {
+    background: #357ABD;
+    box-shadow: 0 5px 12px rgba(53,122,189,0.6);
+    outline: none;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 640px) {
+    body {
+      margin: 20px 15px;
+      padding: 15px;
+    }
+    #quiz-container {
+      padding: 20px 15px;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    button {
+      font-size: 0.95rem;
+      padding: 12px;
+    }
+    p#progress {
+      font-size: 0.9rem;
+    }
+  }
+  
