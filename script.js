@@ -1364,6 +1364,7 @@ const questions = [
     
 ]
 
+
 let currentQuestionIndex = 0;
 let score = 0;
 
@@ -1381,29 +1382,46 @@ function showQuestion() {
   const questionObj = questions[currentQuestionIndex];
   document.getElementById('question').textContent = `Вопрос ${currentQuestionIndex + 1}: ${questionObj.question}`;
 
-  // Shuffle options
   const shuffledOptions = shuffle(questionObj.options);
-
   const optionsDiv = document.getElementById('options');
-  optionsDiv.innerHTML = ""; // Clear old options
+  optionsDiv.innerHTML = ""; // Clear previous options
 
   shuffledOptions.forEach(optionText => {
     const btn = document.createElement('button');
     btn.textContent = optionText;
+    btn.classList.add('option-btn');
+
     btn.onclick = () => {
-      // Check if selected option matches original first option (correct answer)
-      if (optionText === questionObj.options[0]) {
+      // Disable all buttons
+      const buttons = document.querySelectorAll('.option-btn');
+      buttons.forEach(b => b.disabled = true);
+
+      const correctAnswer = questionObj.options[0];
+
+      if (optionText === correctAnswer) {
+        btn.classList.add('correct');
         score++;
-      }
-
-      currentQuestionIndex++;
-
-      if (currentQuestionIndex < questions.length) {
-        showQuestion();
       } else {
-        showResult();
+        btn.classList.add('incorrect');
+        // Highlight the correct button
+        buttons.forEach(b => {
+          if (b.textContent === correctAnswer) {
+            b.classList.add('correct');
+          }
+        });
       }
+
+      // Go to next question after short delay
+      setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+          showQuestion();
+        } else {
+          showResult();
+        }
+      }, 1000); // 1 second delay
     };
+
     optionsDiv.appendChild(btn);
   });
 
@@ -1418,4 +1436,3 @@ function showResult() {
 
 // Start quiz
 showQuestion();
-
