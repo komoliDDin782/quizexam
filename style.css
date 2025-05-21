@@ -60,12 +60,7 @@ button {
   user-select: none;
 }
 
-button:hover,
-button:focus {
-  background: #357ABD;
-  box-shadow: 0 8px 25px rgba(53,122,189,0.6);
-  outline: none;
-}
+
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
@@ -98,4 +93,22 @@ button:focus {
     font-size: 1.1rem;
     padding: 14px;
   }
+}
+.option-btn {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.correct {
+  background-color: #4CAF50; /* Зеленый */
+  color: white;
+}
+
+.incorrect {
+  background-color: #f44336; /* Красный */
+  color: white;
 }
